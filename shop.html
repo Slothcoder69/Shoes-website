@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="shop.css">
+    <title>Document</title>
+</head>
+<body>
+    
+
+        <a href="index.html"><img src="logo2.png" alt="logo" style="width: 60px;"></a>
+        
+    <section class="carousel-section">
+        <h2 class="section-title"><span style="color: white;">Best</span> Sellers</h2>
+        <div class="carousel">
+            <div class="carousel-item">
+                <img src="shoe1.png" alt="Best Seller Shoe 1">
+                <h3>Sport Runner</h3>
+                <p>$129.99</p>
+                <a href="location.html" class="shop-btn">Shop Now</a>
+            </div>
+    
+            <div class="carousel-item">
+                <img src="shoe2.png" alt="Best Seller Shoe 2">
+                <h3>Urban Walker</h3>
+                <p>$149.99</p>
+                <a href="location.html" class="shop-btn">Shop Now</a>
+            </div>
+    
+            <div class="carousel-item">
+                <img src="shoe3.png" alt="Best Seller Shoe 3">
+                <h3>Classic Comfort</h3>
+                <p>$99.99</p>
+                <a href="location.html" class="shop-btn">Shop Now</a>
+            </div>
+    
+            <div class="carousel-item">
+                <img src="shoe4.png" alt="Best Seller Shoe 4">
+                <h3>Trail Blazer</h3>
+                <p>$179.99</p>
+                <a href="location.html" class="shop-btn">Shop Now</a>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        // Carousel Auto Slide
+        const carousel = document.querySelector('.carousel');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+    
+        carousel.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - carousel.offsetLeft;
+            scrollLeft = carousel.scrollLeft;
+        });
+    
+        carousel.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+    
+        carousel.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+    
+        carousel.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - carousel.offsetLeft;
+            const walk = (x - startX) * 3; // Adjust scrolling speed
+            carousel.scrollLeft = scrollLeft - walk;
+        });
+    </script>
+</body>
+</html>
